@@ -2,10 +2,12 @@ version: 2
 
 workflows:
   version: 2
-  ci:
+  test:
     jobs:
       - test-py37
       - test-py36
+  build:
+    jobs:
       - build-py37
       - build-py36
 
