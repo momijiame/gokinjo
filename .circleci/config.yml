@@ -4,11 +4,13 @@ workflows:
   version: 2
   ci:
     jobs:
-      - py37
-      - py36
+      - test-py37
+      - test-py36
+      - build-py37
+      - build-py36
 
 jobs:
-  py37: &job-template
+  test-py37: &test-template
     docker:
       - image: circleci/python:3.7
     working_directory: ~/repo
@@ -25,7 +27,25 @@ jobs:
           command: |
             . venv/bin/activate
             pytest
-  py36:
-    <<: *job-template
+  test-py36:
+    <<: *test-template
+    docker:
+      - image: circleci/python:3.6
+  build-py37: &build-template
+    docker:
+      - image: circleci/python:3.7
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: Build sdist
+          command: |
+            python setup.py sdist
+      - run:
+          name: Build wheel
+          command: |
+            python setup.py bdist_wheel
+  build-py36:
+    <<: *build-template
     docker:
       - image: circleci/python:3.6
