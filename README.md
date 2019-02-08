@@ -5,7 +5,7 @@
 ### What is this?
 
 - A feature extraction library based on k-nearest neighbor algorithm in Python
-  - k-NN based feature has experience of being used in 1st place solution of Kaggle competition (see references)
+  - k-NN based feature has experience of being used on 1st place solution of Kaggle competition (see references)
 - Be able to switch backend of k-NN algorithm
   - [scikit-learn](https://github.com/scikit-learn/scikit-learn) (default)
   - [annoy](https://github.com/spotify/annoy)
@@ -71,6 +71,7 @@ step 4: plot the above
 
 ```python
 plt.scatter(X_knn[:, 0], X_knn[:, 1], c=y)
+plt.show()
 ```
 
 ![linearly separable data](https://raw.githubusercontent.com/wiki/momijiame/gokinjo/images/README/quickstart2.png)
