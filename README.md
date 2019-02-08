@@ -36,9 +36,51 @@ $ pip install "gokinjo[annoy]"
 $ pip install git+https://github.com/momijiame/gokinjo.git
 ```
 
+### Quick start
+
+step 1: generate example data
+
+```python
+import numpy as np
+x0 = np.random.rand(500) - 0.5
+x1 = np.random.rand(500) - 0.5
+X = np.array(list(zip(x0, x1)))
+y = np.array([1 if i0 * i1 > 0 else 0 for i0, i1 in X])
+```
+
+step 2: plot the above
+
+```python
+from matplotlib import pyplot as plt
+plt.scatter(X[:, 0], X[:, 1], c=y)
+plt.show()
+```
+
+![not linearly separable data](wiki/images/README/quickstart1.png)
+
+It is not linearly separable obviously.
+
+step 3: extract k-NN feature with K-Fold
+
+```python
+from gokinjo import knn_kfold_extract
+X_knn = knn_kfold_extract(X, y)
+```
+
+step 4: plot the above
+
+```python
+plt.scatter(X_knn[:, 0], X_knn[:, 1], c=y)
+```
+
+![linearly separable data](wiki/images/README/quickstart2.png)
+
+It looks like almost linearly separable.
+
 ### Usage example
 
 - Please see [examples](https://github.com/momijiame/gokinjo/tree/master/examples) in GitHub repository.
+
 
 ### How to setup a development environment
 
