@@ -56,7 +56,7 @@ plt.scatter(X[:, 0], X[:, 1], c=y)
 plt.show()
 ```
 
-![not linearly separable data](wiki/images/README/quickstart1.png)
+![not linearly separable data](https://raw.githubusercontent.com/wiki/momijiame/gokinjo/images/README/quickstart1.png)
 
 It is not linearly separable obviously.
 
@@ -73,7 +73,7 @@ step 4: plot the above
 plt.scatter(X_knn[:, 0], X_knn[:, 1], c=y)
 ```
 
-![linearly separable data](wiki/images/README/quickstart2.png)
+![linearly separable data](https://raw.githubusercontent.com/wiki/momijiame/gokinjo/images/README/quickstart2.png)
 
 It looks like almost linearly separable.
 
